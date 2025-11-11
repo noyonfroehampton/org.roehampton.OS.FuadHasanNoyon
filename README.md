@@ -14,7 +14,7 @@ All administration is performed remotely via SSH from a separate workstation, fo
 
 * [🗓️ Week 1: System Planning and Distribution Selection](week1.md)
 * [🗓️Week 2: Security Planning and Testing Methodology](week2.md)
-* *(Week 3: Application Selection for Performance Testing - Coming Soon)*
+* [🗓️Week 3: Application Selection for Performance Testing](week3.md)
 * *(Week 4: Initial System Configuration & Security Implementation - Coming Soon)*
 * *(Week 5: Advanced Security and Monitoring Infrastructure - Coming Soon)*
 * *(Week 6: Performance Evaluation and Analysis - Coming Soon)*
