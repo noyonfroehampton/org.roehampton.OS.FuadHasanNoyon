@@ -7,7 +7,6 @@ This week focuses on planning the system architecture, selecting the server dist
 Below is the system architecture diagram showing the two-system setup, network connection, and planned IP addresses.
 
 ![System Architecture Diagram](architecture.png)
-*(Note: You must upload your diagram image file as `architecture.png` to your GitHub repository for this to appear.)*
 
 ## 2. Distribution Selection Justification
 
@@ -22,11 +21,22 @@ My justification for this choice is as follows:
 
 ## 3. Workstation Configuration Decision
 
-*[This is our next task. Here you will justify your workstation choice.]*
+I am using a Fedora Desktop VM as my administrative workstation, which runs on a separate physical machine from my Ubuntu Server VM.
+
+This approach is fully compliant with the "dual-system architecture" requirement. It provides a dedicated, isolated Linux environment to perform all remote administration tasks via SSH. This setup mirrors a professional environment where administrators use their own machines to manage remote servers, thus developing key command-line and remote management skills.
 
 ## 4. Network Configuration Documentation
 
-*[We will fill this in after Task 3. Here you will document your VirtualBox network settings and IP addresses.]*
+## 4. Network Configuration Documentation
+
+Since my server and workstation VMs are on two different physical host machines, a standard VirtualBox internal network will not work.
+
+To enable communication, both VMs will use a **"Bridged Adapter"** setting in VirtualBox. This connects both VMs directly to my physical home network, where they will each get an IP address from my router, allowing them to communicate.
+
+* **VirtualBox Network Type (Both VMs):** Bridged Adapter.
+* **Physical Network:** My home LAN (e.g., 192.168.1.0/24).
+* **Server IP (Ubuntu):** I will configure a static IP *inside* the Ubuntu OS (e.g., **192.168.1.10**) to ensure it's always reachable at the same address.
+* **Workstation IP (Fedora):** This can be assigned by DHCP from my router (e.g., **192.168.1.11**).
 
 ## 5. System Specifications
 
