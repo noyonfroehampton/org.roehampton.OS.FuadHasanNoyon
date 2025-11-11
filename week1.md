@@ -51,20 +51,18 @@ This setup mirrors a professional environment where administrators use their own
 
 ## 4. 🌐 Network Configuration Documentation
 
-Since my server and workstation VMs are hosted on **different physical machines**, a standard VirtualBox **Internal Network** is not suitable.
+Since my server and workstation VMs are on two different physical host machines, a "Host-Only Network" (like the one in my initial diagram) is not possible.
 
-To enable communication, both VMs use the **"Bridged Adapter"** network mode in VirtualBox.  
-This connects both VMs directly to the physical LAN, allowing them to obtain IP addresses from the home router and communicate with each other.
+Instead, both VMs use a **"Bridged Adapter"** setting in VirtualBox. This connects both VMs directly to my physical home network, allowing them to communicate. My documentation and diagram will be updated to reflect this correct "Bridged" setup.
 
 | Configuration Item | Setting / Value |
 |---------------------|-----------------|
-| **VirtualBox Network Type (Both VMs)** | Bridged Adapter |
-| **Physical Network** | Home LAN (e.g., `192.168.1.0/24`) |
-| **Server IP (Ubuntu)** | Static: `192.168.1.10` |
-| **Workstation IP (Fedora)** | DHCP: `192.168.1.11` |
+| **VirtualBox Network Type (Both VMs)** | **Bridged Adapter** |
+| **Physical Network** | Home LAN (`10.208.115.0/24`) |
+| **Server IP (Ubuntu)** | `10.208.115.17` (Dynamic) |
+| **Workstation IP (Fedora)** | (Will be assigned by DHCP) |
 
-> **Note:**  
-> A bridged adapter allows both virtual machines to appear as full network devices on your LAN, enabling direct SSH communication.
+> **Note:** My `ip addr` output confirms this bridged setup. I will later configure a *static* IP for the server (e.g., `10.208.115.50`) as required.
 
 ---
 
@@ -72,32 +70,31 @@ This connects both VMs directly to the physical LAN, allowing them to obtain IP 
 
 Here are the initial specifications for the headless Ubuntu server, captured from the direct console.
 
+### 🧠 `uname -a`
+```bash
+Linux Ubuntu 6.14.0-35-generic #3524.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Oct 14 13:55:17 UTC 2 x86_64 x86_64 x86_64 GNU/Linux;
+```
 ---
 
-### 🧠 `uname -a`
-
+### Memory `free -h`
 ```bash
-Linux Ubuntu 6.14.0-35-generic #3524.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Oct 14 13:55:17 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
-
-
-
-              total        used        free      shared  buff/cache   available
-Mem:          7.8Gi        1.0Gi        6.0Gi        32Mi        1.1Gi        6.8Gi
-Swap:            0B           0B           0B
-
-
+              total         used         free      shared   buff/cache   available
+Mem:          7.8Gi        1.0Gi        6.0Gi        32Mi        1.1Gi       6.8Gi
+Swap:            0B           0B           0B;
+```
 
 ### 📁 `df -h`
-
+```bash
 Filesystem      Size  Used Avail Use% Mounted on
 tmpfs           795M  1.7M  793M   1% /run
 /dev/sda2       251G  5.3G  233G   3% /
 tmpfs           3.9G     0  3.9G   0% /dev/shm
 tmpfs           5.0M  8.0K  5.0M   1% /run/lock
 tmpfs           795M   152K  795M   1% /run/user/1000
+```
 
-🌍 ip addr
-
+### 🌍 `ip addr`
+```bash
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
@@ -111,14 +108,19 @@ tmpfs           795M   152K  795M   1% /run/user/1000
        valid_lft 431737sec preferred_lft 431737sec
     inet6 fe80::a00:27ff:fee9:b86d/64 scope link
        valid_lft forever preferred_lft forever
+```
 
-🧾 lsb_release -a
-
+### 🧾 `lsb_release -a`
+```bash
 No LSB modules are available.
 Distributor ID: Ubuntu
 Description:    Ubuntu 24.04.3 LTS
 Release:        24.04
 Codename:       noble
+```
 
-[⬅️ Back to Home](README.md)
+---
+
+[Back to Home](README.md)
+
 
