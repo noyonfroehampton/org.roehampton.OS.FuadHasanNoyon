@@ -69,3 +69,5 @@ This model identifies at least 3 specific security threats and the mitigation st
 | **T-002** | **Network Port Scanning & Exploitation** | An attacker scans my server's IP, finds an open port for an unpatched service, and exploits it. | **Firewall Configuration:** I will use `ufw` to `deny incoming` traffic by default. Only the SSH port will be open, and *only* to my workstation's IP. |
 | **T-003** | **Privilege Escalation** | An attacker gains entry as a standard user (or via a compromised service) and manages to get `root` access. | **User Privilege Management:** I will disable root login via SSH (`PermitRootLogin no`) and use a non-root admin account. |
 | **T-004** | **Known Vulnerability Exploit** | A new critical vulnerability is discovered in the OS, and an attacker exploits it before I can patch. | **Automatic Updates:** I will configure `unattended-upgrades` to automatically apply critical security patches. |
+
+[Back to Home](README.md)
