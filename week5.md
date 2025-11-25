@@ -158,3 +158,5 @@ echo "--- ✅ Monitoring Complete ---"
 
 ![](monitor.png)
 
+[Back to Home](README.md)
+
