@@ -104,3 +104,57 @@ fi
 echo "--- ✅ Check Complete ---"
 ```
 
+**Evidence of Execution:** Below is the output of the script running on the server, verifying a secure baseline.
+
+![](baseline.png)
+* * *
+
+## 5\. 📊 Remote Monitoring Script
+
+I created a remote monitoring script named `monitor-server.sh` on my Fedora workstation. This script uses SSH to connect to the server and retrieve key performance metrics (Uptime, Memory, and Disk Usage) without requiring an interactive login session.
+
+**Script Source Code (`monitor-server.sh`):**
+```bash
+#!/bin/bash
+# monitor-server.sh
+# Runs on workstation to monitor remote server via SSH
+
+# Configuration
+# (Note: IP address is updated based on current network assignment)
+SERVER_IP="10.208.115.132"
+USER="radmin"
+
+echo "--- 📊 Starting Remote Server Monitor ---"
+echo "Target: $USER@$SERVER_IP"
+echo "-----------------------------------------"
+
+# 1. Check Connectivity
+echo "[CHECK] Network Connectivity..."
+if ping -c 1 -W 2 "$SERVER_IP" > /dev/null; then
+    echo "  [OK] Server is reachable."
+else
+    echo "  [FAIL] Server is NOT reachable. Exiting."
+    exit 1
+fi
+
+# 2. Check Metrics via SSH
+echo ""
+echo "[METRIC] System Uptime & Load:"
+ssh "$USER@$SERVER_IP" "uptime"
+
+echo ""
+echo "[METRIC] Memory Usage (MB):"
+ssh "$USER@$SERVER_IP" "free -m"
+
+echo ""
+echo "[METRIC] Disk Usage:"
+ssh "$USER@$SERVER_IP" "df -h /"
+
+echo ""
+echo "--- ✅ Monitoring Complete ---"
+```
+
+**Evidence of Execution:** Below is the output of the script running from my workstation, successfully retrieving data from the headless server.
+
+![](monitor.png)
+
