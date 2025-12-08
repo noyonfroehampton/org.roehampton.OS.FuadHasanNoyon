@@ -72,3 +72,5 @@ Finally, I configured the ufw (Uncomplicated Firewall) to secure the server and 
 The final, active ruleset on the server, captured with `sudo ufw status`. This screenshot shows the correct rule allowing my workstation IP (10.208.115.20).
 
 ![ufw status screenshot](ufw.png)
+
+[Back to Home](README.md)
