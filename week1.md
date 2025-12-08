@@ -17,25 +17,18 @@ Below is the system architecture diagram showing the two-system setup, network c
 
 ## 2. 💿 Distribution Selection Justification
 
-For my server system, I selected **Ubuntu Server 22.04 LTS**.  
-The primary alternative I considered was **Fedora Server**.
+For my server system, I utilized **Ubuntu Desktop 24.04 LTS**, but I have configured it to function as a **headless server**.
 
-### Justification
+### Justification & Configuration
 
-- **Stability vs. Bleeding-Edge:**  
-  I chose Ubuntu Server because its Long-Term Support (LTS) version provides a stable, reliable platform with security updates for 5 years.  
-  This stability is critical for a server environment and preferable to Fedora Server’s more frequent, bleeding-edge release cycle.
+- **Resource Availability:** I leveraged the Ubuntu Desktop ISO to ensure broad driver compatibility with the physical hardware I am using for this node.
 
-- **Security Module:**  
-  Ubuntu uses **AppArmor** by default, while Fedora uses **SELinux**.  
-  Since implementing Mandatory Access Control is a requirement for Phase 5, I will focus on learning and configuring AppArmor.
+- **Server Transformation:** Although the installation includes a GUI, I am strictly enforcing a "headless" workflow:
+  * All administration is performed remotely via SSH from my Fedora workstation.
+  * I have disabled unnecessary background services (like `snapd` in Week 6) to optimize resources.
+  * I am ignoring the desktop interface entirely to simulate a true data center environment.
 
-- **Package Management:**  
-  I am more familiar with the `apt` package manager and `.deb` packages used by Ubuntu, which allows for faster configuration and troubleshooting.
-
-- **Community and Documentation:**  
-  Ubuntu has a very large user community and comprehensive documentation.  
-  As a student, this strong support network is a major advantage for troubleshooting and learning.
+- **Security Module:** Like the Server edition, Ubuntu Desktop uses **AppArmor** by default, allowing me to fulfill the Mandatory Access Control requirements of Phase 5.
 
 ---
 
