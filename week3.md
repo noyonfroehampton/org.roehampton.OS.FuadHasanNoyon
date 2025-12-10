@@ -77,8 +77,8 @@ This is my specific plan to measure each application, based on my Week 2 testing
 |---|---|---|
 | **sysbench (CPU)** | `sysbench cpu --threads=2 run` | I will have `htop` running to watch the CPU cores spike to 100%. |
 | **stress-ng (RAM)** | `stress-ng --vm 1 --vm-bytes 1G` | I will run `free -h` before and during the test to document the drop in available memory. |
-
-[Back to Home](README.md)
 | **sysbench (I/O)** | `sysbench fileio --file-test-mode=rndrw run` | I will have `iostat -d 2` running to get live updates on disk read/write speeds every 2 seconds. |
 | **iperf3 (Network)** | `iperf3 -s` (on server), `iperf3 -c [server_ip]` (on workstation) | The `iperf3` client on my workstation will provide the final performance report. |
 | **nginx (Server)** | `systemctl status nginx` (check service) | I will use `ping` to measure latency 4 and a tool like `curl` to measure the time to get a response. |
+
+[Back to Home](README.md)
