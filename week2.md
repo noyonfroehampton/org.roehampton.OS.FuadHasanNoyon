@@ -70,4 +70,11 @@ This model identifies at least 3 specific security threats and the mitigation st
 | **T-003** | **Privilege Escalation** | An attacker gains entry as a standard user (or via a compromised service) and manages to get `root` access. | **User Privilege Management:** I will disable root login via SSH (`PermitRootLogin no`) and use a non-root admin account. |
 | **T-004** | **Known Vulnerability Exploit** | A new critical vulnerability is discovered in the OS, and an attacker exploits it before I can patch. | **Automatic Updates:** I will configure `unattended-upgrades` to automatically apply critical security patches. |
 
+---
+## References
+
+[1] OpenSSH, “OpenSSH Manual Pages,” *OpenSSH.com*, 2024. [Online]. Available: https://www.openssh.com/manual.html
+
+[2] Canonical Ltd., “Security - AppArmor,” *Ubuntu Documentation*, 2024. [Online]. Available: https://ubuntu.com/server/docs/security-apparmor
+
 [Back to Home](README.md)
