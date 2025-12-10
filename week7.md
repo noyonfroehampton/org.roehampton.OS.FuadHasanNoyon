@@ -69,4 +69,11 @@ Over the last 7 weeks, I have successfully deployed a "headless" Ubuntu server a
 
 This journal documents the complete journey from a fresh installation to a hardened, monitored, and audited Linux server.
 
+---
+## References
+
+[1] CISOfy, “Lynis - Security Auditing and Hardening Tool,” *CISOfy.com*, 2024. [Online]. Available: https://cisofy.com/lynis/
+
+[2] G. Lyon, “Nmap Network Scanning,” *Nmap.org*, 2024. [Online]. Available: https://nmap.org/book/man.html
+
 [Back to Home](README.md)
