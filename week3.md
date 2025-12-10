@@ -81,4 +81,13 @@ This is my specific plan to measure each application, based on my Week 2 testing
 | **iperf3 (Network)** | `iperf3 -s` (on server), `iperf3 -c [server_ip]` (on workstation) | The `iperf3` client on my workstation will provide the final performance report. |
 | **nginx (Server)** | `systemctl status nginx` (check service) | I will use `ping` to measure latency 4 and a tool like `curl` to measure the time to get a response. |
 
+---
+## References
+
+[1] A. Kopytov, “Sysbench Manual,” *GitHub*, 2020. [Online]. Available: https://github.com/akopytov/sysbench
+
+[2] C. King, “stress-ng: a tool to load and stress a computer system,” *Ubuntu Manpages*, 2024. [Online]. Available: https://manpages.ubuntu.com/manpages/noble/man1/stress-ng.1.html
+
+[3] ESnet, “iPerf3 User Documentation,” *ESnet.gov*, 2024. [Online]. Available: https://software.es.net/iperf/
+
 [Back to Home](README.md)
