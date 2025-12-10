@@ -76,4 +76,11 @@ After applying these changes, I measured the idle state again. The system now us
 
 ![Optimized Baseline](optimized_baseline.png)
 
+---
+## References
+
+[1] A. Kopytov, “Sysbench Manual,” *GitHub*, 2020. [Online]. Available: https://github.com/akopytov/sysbench
+
+[2] C. King, “stress-ng,” *Ubuntu Manpages*, 2024. [Online]. Available: https://manpages.ubuntu.com/manpages/noble/man1/stress-ng.1.html
+
 [Back to Home](README.md)
