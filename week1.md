@@ -10,9 +10,6 @@ Below is the system architecture diagram showing the two-system setup, network c
 
 ![System Architecture Diagram](architecture.png)
 
-> **Note:**  
-> Ensure your diagram image file is uploaded to your GitHub repository as **`architecture.png`** for it to appear correctly.
-
 ---
 
 ## 2. 💿 Distribution Selection Justification
