@@ -159,6 +159,13 @@ echo "--- ✅ Monitoring Complete ---"
 **Evidence of Operation:**
 *Please refer to the `baseline.png` screenshot in Week 6 to see the successful output of this monitoring script.*
 
+---
+## References
+
+[1] Fail2Ban, “Fail2Ban Manual,” *Fail2Ban.org*, 2024. [Online]. Available: https://www.fail2ban.org/
+
+[2] Canonical Ltd., “Automatic Updates,” *Ubuntu Documentation*, 2024. [Online]. Available: https://help.ubuntu.com/community/AutomaticSecurityUpdates
+
 
 [Back to Home](README.md)
 
