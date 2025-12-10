@@ -110,6 +110,13 @@ Codename:       noble
 ```
 
 ---
+## References
+
+[1] Canonical Ltd., “Ubuntu 24.04 LTS (Noble Numbat),” *Ubuntu Releases*, 2024. [Online]. Available: https://releases.ubuntu.com/24.04/
+
+[2] Oracle, “Oracle VM VirtualBox User Manual,” *VirtualBox.org*, 2024. [Online]. Available: https://www.virtualbox.org/manual/
+
+---
 
 [Back to Home](README.md)
 
