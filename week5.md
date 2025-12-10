@@ -104,5 +104,61 @@ fi
 echo "--- ✅ Check Complete ---"
 ```
 
+## 5. 📊 Remote Monitoring Script
+
+To satisfy the remote monitoring requirement, I created a script named `monitor-server.sh` on my **Fedora Workstation**. Unlike the security script (which runs *on* the server), this script runs on my local machine and uses SSH to retrieve performance data from the remote server without needing an interactive login.
+
+**Script Source Code (`monitor-server.sh`):**
+
+```bash
+#!/bin/bash
+# monitor-server.sh
+# Runs on workstation to monitor remote server via SSH
+
+# Configuration
+# Make sure this matches your current Server IP!
+SERVER_IP="10.208.115.132"
+USER="radmin"
+
+echo "--- 📊 Starting Remote Server Monitor ---"
+echo "Target: $USER@$SERVER_IP"
+echo "-----------------------------------------"
+
+# 1. Check Connectivity
+echo "[CHECK] Network Connectivity..."
+if ping -c 1 -W 2 "$SERVER_IP" > /dev/null; then
+    echo "  [OK] Server is reachable."
+else
+    echo "  [FAIL] Server is NOT reachable. Exiting."
+    exit 1
+fi
+
+# 2. Check Metrics via SSH
+echo ""
+echo "[METRIC] System Uptime & Load:"
+ssh "$USER@$SERVER_IP" "uptime"
+
+echo ""
+echo "[METRIC] Memory Usage (MB):"
+ssh "$USER@$SERVER_IP" "free -m"
+
+# 3. Check Disk Usage & Activity (Updated for Week 6)
+echo ""
+echo "[METRIC] Disk Usage (Space):"
+ssh "$USER@$SERVER_IP" "df -h /"
+
+echo ""
+echo "[METRIC] Disk Activity (IO):"
+# This prints stats every 1 second for 5 seconds
+ssh "$USER@$SERVER_IP" "vmstat 1 5"
+
+echo ""
+echo "--- ✅ Monitoring Complete ---"
+````
+
+**Evidence of Operation:**
+*Please refer to the `baseline.png` screenshot in Week 6 to see the successful output of this monitoring script.*
+
+
 [Back to Home](README.md)
 
