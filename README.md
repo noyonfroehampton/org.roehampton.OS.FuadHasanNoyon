@@ -6,7 +6,7 @@ Welcome to my technical journal for the CMPN202 Operating Systems coursework.Thi
 
 All administration is performed remotely via SSH from a separate workstation, focusing on command-line proficiency, security hardening, and performance analysis.
 
-**Student ID:** `A0021367`
+**Student ID:** `A00021367`
 
 ---
 
