@@ -113,6 +113,8 @@ fi
 echo "--- ✅ Check Complete ---"
 ```
 
+![baseline_status](baseline_status.png)
+
 ## 5. 📊 Remote Monitoring Script
 
 To satisfy the remote monitoring requirement, I created a script named `monitor-server.sh` on my **Fedora Workstation**. Unlike the security script (which runs *on* the server), this script runs on my local machine and uses SSH to retrieve performance data from the remote server without needing an interactive login.
@@ -176,7 +178,7 @@ echo "--- ✅ Monitoring Complete ---"
 ````
 
 **Evidence of Operation:**
-*Please refer to the `baseline.png` screenshot in Week 6 to see the successful output of this monitoring script.*
+*Please refer to Week 6 to see the successful output of this monitoring script.*
 
 ---
 ## References
