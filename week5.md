@@ -190,7 +190,7 @@ echo "--- ✅ Monitoring Complete ---"
 
 [Previous Entry](week4.md)
 
-[Next Entry](week6.md
+[Next Entry](week6.md)
 
 [Back to Home](README.md)
 
