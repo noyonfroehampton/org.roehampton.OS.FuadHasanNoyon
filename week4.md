@@ -73,6 +73,8 @@ The final, active ruleset on the server, captured with `sudo ufw status`. This s
 
 ![ufw status screenshot](ufw.png)
 
+> *(Note: This rule was configured for the specific IP assigned to my workstation during this session. As noted in Week 1, my IP changes dynamically based on my location.)*
+
 ---
 ## References
 
