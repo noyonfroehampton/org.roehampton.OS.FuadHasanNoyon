@@ -10,6 +10,13 @@ Below is the system architecture diagram showing the two-system setup, network c
 
 ![System Architecture Diagram](architecture.png)
 
+> **⚠️ Note on Infrastructure & Network Environment**
+> Because I am working on this project across multiple physical locations (e.g., University Lab and Home), my network environment changes. You will notice that:
+> * **IP Addresses** vary throughout the weeks (e.g., `10.208.115.17` vs `10.208.115.132`) as they are assigned dynamically by different DHCP servers.
+> * **Workstation Terminals** may show different prompts (e.g., `vboxuser@Ubuntu` or `sakibbaa@fedora`) depending on which machine I was physically using to connect via SSH at the time.
+>
+> Regardless of the location, the architecture remains a **Dual-System setup**, and all server administration is performed strictly via SSH.
+
 ---
 
 ## 2. 💿 Distribution Selection Justification
