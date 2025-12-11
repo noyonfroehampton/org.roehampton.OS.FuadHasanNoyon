@@ -14,6 +14,8 @@ The following table summarizes the peak resource usage recorded during each test
 | **Memory Usage** | ~190 MB | ~195 MB | **850 MB+** | ~200 MB |
 | **Disk I/O (Blocks In/Out)**| 0 / 0 | 0 / 0 | 0 / 0 | **High Activity** |
 
+![](Load_Average_and_Memory_(MB).png)
+
 ---
 
 ## 2. 🧪 Testing Evidence and Analysis
