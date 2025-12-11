@@ -65,12 +65,15 @@ echo "--- 🛡️ Starting Security Baseline Check ---"
 
 # 1. SSH Hardening
 echo "[CHECK] SSH Configuration..."
+# Search for the exact phrase "PermitRootLogin no" in the config file. 
+# -q suppresses output (quiet mode), only returning a success/fail exit code.
 if grep -q "^PermitRootLogin no" /etc/ssh/sshd_config; then
     echo "  [PASS] Root login disabled."
 else
     echo "  [FAIL] Root login enabled!"
 fi
 
+# Search for "PasswordAuthentication no" at the start of a line (^)
 if grep -q "^PasswordAuthentication no" /etc/ssh/sshd_config; then
     echo "  [PASS] Password auth disabled."
 else
@@ -79,6 +82,8 @@ fi
 
 # 2. Firewall
 echo "[CHECK] Firewall..."
+# Check the status of the Uncomplicated Firewall (ufw).
+# We pipe (|) the output to grep to search for "Status: active".
 if sudo ufw status | grep -q "Status: active"; then
     echo "  [PASS] Firewall is active."
 else
@@ -87,6 +92,8 @@ fi
 
 # 3. AppArmor
 echo "[CHECK] AppArmor..."
+# Check the status of AppArmor profiles.
+# Look for the specific string confirming the kernel module is loaded.
 if sudo aa-status | grep -q "apparmor module is loaded"; then
     echo "  [PASS] AppArmor is loaded."
 else
@@ -95,6 +102,8 @@ fi
 
 # 4. Fail2Ban
 echo "[CHECK] Fail2Ban..."
+# Check if the fail2ban service is currently active and running.
+# --quiet prevents status text from printing; we only want the exit code.
 if systemctl is-active --quiet fail2ban; then
     echo "  [PASS] Fail2Ban is running."
 else
@@ -116,8 +125,9 @@ To satisfy the remote monitoring requirement, I created a script named `monitor-
 # Runs on workstation to monitor remote server via SSH
 
 # Configuration
-# Make sure this matches your current Server IP!
+# The IP address of the target Ubuntu server
 SERVER_IP="10.208.115.132"
+# The username to log in with (must have SSH keys configured)
 USER="radmin"
 
 echo "--- 📊 Starting Remote Server Monitor ---"
@@ -126,9 +136,13 @@ echo "-----------------------------------------"
 
 # 1. Check Connectivity
 echo "[CHECK] Network Connectivity..."
+# Send exactly 1 ping packet (-c 1)
+# Wait max 2 seconds for a response (-W 2) to avoid hanging
+# Redirect output to /dev/null to keep the terminal clean
 if ping -c 1 -W 2 "$SERVER_IP" > /dev/null; then
     echo "  [OK] Server is reachable."
 else
+    # If ping fails, print error and exit the script immediately with error code 1
     echo "  [FAIL] Server is NOT reachable. Exiting."
     exit 1
 fi
@@ -136,20 +150,25 @@ fi
 # 2. Check Metrics via SSH
 echo ""
 echo "[METRIC] System Uptime & Load:"
+# Connect via SSH and run 'uptime' to see how long the system has been running
 ssh "$USER@$SERVER_IP" "uptime"
 
 echo ""
 echo "[METRIC] Memory Usage (MB):"
+# Connect via SSH and run 'free -m' to show memory in Megabytes
 ssh "$USER@$SERVER_IP" "free -m"
 
-# 3. Check Disk Usage & Activity (Updated for Week 6)
+# 3. Check Disk Usage & Activity
 echo ""
 echo "[METRIC] Disk Usage (Space):"
+# Connect via SSH and check disk space (df) in human-readable format (-h) for root (/)
 ssh "$USER@$SERVER_IP" "df -h /"
 
 echo ""
 echo "[METRIC] Disk Activity (IO):"
-# This prints stats every 1 second for 5 seconds
+# Run 'vmstat' to get virtual memory statistics
+# '1' means update every 1 second
+# '5' means run for 5 counts (5 seconds total)
 ssh "$USER@$SERVER_IP" "vmstat 1 5"
 
 echo ""
