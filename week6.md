@@ -85,4 +85,6 @@ After applying these changes, I measured the idle state again. The system now us
 
 [2] C. King, “stress-ng,” *Ubuntu Manpages*, 2024. [Online]. Available: https://manpages.ubuntu.com/manpages/noble/man1/stress-ng.1.html
 
+[Previous Entry](week5.md)
+[Next Entry](week7.md)
 [Back to Home](README.md)
