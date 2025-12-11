@@ -79,5 +79,7 @@ This model identifies at least 3 specific security threats and the mitigation st
 
 
 [Previous Entry](week1.md)
+
 [Next Entry](week3.md)
+
 [Back to Home](README.md)
