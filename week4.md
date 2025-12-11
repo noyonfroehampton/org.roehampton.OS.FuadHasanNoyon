@@ -83,5 +83,7 @@ The final, active ruleset on the server, captured with `sudo ufw status`. This s
 [2] OpenSSH, “sshd_config(5) Linux manual page,” *man7.org*, 2024. [Online]. Available: https://man7.org/linux/man-pages/man5/sshd_config.5.html
 
 [Previous Entry](week3.md)
+
 [Next Entry](week5.md)
+
 [Back to Home](README.md)
