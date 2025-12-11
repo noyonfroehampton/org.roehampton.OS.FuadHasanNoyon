@@ -188,5 +188,7 @@ echo "--- ✅ Monitoring Complete ---"
 [2] Canonical Ltd., “Automatic Updates,” *Ubuntu Documentation*, 2024. [Online]. Available: https://help.ubuntu.com/community/AutomaticSecurityUpdates
 
 
+[Previous Entry](week4.md)
+[Next Entry](week6.md)
 [Back to Home](README.md)
 
