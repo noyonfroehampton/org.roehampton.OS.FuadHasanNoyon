@@ -86,4 +86,5 @@ This journal documents the complete journey from a fresh installation to a harde
 [2] G. Lyon, “Nmap Network Scanning,” *Nmap.org*, 2024. [Online]. Available: https://nmap.org/book/man.html
 
 [Previous Entry](week6.md)
+
 [Back to Home](README.md)
