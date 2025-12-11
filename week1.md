@@ -28,9 +28,9 @@ For my server system, I utilized **Ubuntu Desktop 24.04 LTS**, but I have config
 - **Resource Availability:** I leveraged the Ubuntu Desktop ISO to ensure broad driver compatibility with the physical hardware I am using for this node.
 
 - **Server Transformation:** Although the installation includes a GUI, I am strictly enforcing a "headless" workflow:
-  * All administration is performed remotely via SSH from my Fedora workstation.
+  * All administration is performed remotely via SSH.
+  * I have configured the system to boot to `multi-user.target` (CLI only) to prevent the GUI from loading, strictly enforcing a headless environment.
   * I have disabled unnecessary background services (like `snapd` in Week 6) to optimize resources.
-  * I am ignoring the desktop interface entirely to simulate a true data center environment.
 
 - **Security Module:** Like the Server edition, Ubuntu Desktop uses **AppArmor** by default, allowing me to fulfill the Mandatory Access Control requirements of Phase 5.
 
