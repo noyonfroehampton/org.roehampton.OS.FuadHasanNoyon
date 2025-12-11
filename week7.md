@@ -19,6 +19,15 @@ The system achieved a "Hardening Index" score of **61**, which reflects the secu
 * **Strengths:** SSH is properly secured (no root/password login), and the firewall is active.
 * **Remaining Risks:** As with any Linux system, kernel vulnerabilities may arise between patch cycles. This is mitigated by the *unattended-upgrades* service configured in Week 5.
 
+### **Score Analysis:**
+While a Hardening Index of 61 is a passing baseline, it falls short of the ideal 80+. This score is primarily constrained by my architectural decision to use the Ubuntu Desktop ISO (Week 1) rather than a minimal Server image.
+
+Bloatware: The desktop image includes GUI packages, printing services (CUPS), and sound drivers that Lynis flags as unnecessary attack surfaces for a server.
+
+Kernel Tuning: To maintain stability in the VirtualBox environment, I did not implement aggressive sysctl kernel tuning (e.g., disabling IPv6 or restricting kernel pointers), which would have significantly boosted the score.
+
+Future Improvement: To achieve a score >80, I would need to reinstall using the minimal Ubuntu Server ISO and implement a strict sysctl.conf hardening profile.
+
 ---
 
 ## 2. 🌐 Network Security Verification (Nmap)
