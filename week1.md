@@ -10,12 +10,19 @@ Below is the system architecture diagram showing the two-system setup, network c
 
 ![System Architecture Diagram](architecture.png)
 
-> **⚠️ Note on Infrastructure & Network Environment**
-> Because I am working on this project across multiple physical locations (e.g., University Lab and Home), my network environment changes. You will notice that:
-> * **IP Addresses** vary throughout the weeks (e.g., `10.208.115.17` vs `10.208.115.132`) as they are assigned dynamically by different DHCP servers.
-> * **Workstation Terminals** may show different prompts (e.g., `vboxuser@Ubuntu` or `sakibbaa@fedora`) depending on which machine I was physically using to connect via SSH at the time.
+> **⚠️ Architecture Evolution Note:**
+> The diagram above illustrates the **initial planned architecture** utilizing a generic Host-Only network (`192.168.56.x`).
 >
-> Regardless of the location, the architecture remains a **Dual-System setup**, and all server administration is performed strictly via SSH.
+> However, during implementation, I discovered that working across multiple physical locations (Home and University) required a **Bridged Network** configuration to ensure consistent connectivity.
+>
+> **Implementation Change (Planned vs. Actual):**
+>
+> | Node | Planned IP (Host-Only) | Actual IP (Bridged) |
+> | :--- | :--- | :--- |
+> | **Headless Server** | `192.168.56.10` | **`10.208.115.10`** |
+> | **Workstation** | `192.168.56.1` | **`10.208.115.16`** |
+>
+> All configurations in this journal (including Firewall rules in Week 4) reflect this **Bridged** implementation.
 
 ---
 
@@ -134,6 +141,8 @@ Codename:       noble
 [2] Oracle, “Oracle VM VirtualBox User Manual,” *VirtualBox.org*, 2024. [Online]. Available: https://www.virtualbox.org/manual/
 
 ---
+
+[Next Entry](week2.md)
 
 [Back to Home](README.md)
 
