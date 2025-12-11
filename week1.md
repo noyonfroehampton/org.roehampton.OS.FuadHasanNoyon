@@ -59,7 +59,17 @@ Instead, both VMs use a **"Bridged Adapter"** setting in VirtualBox. This connec
 | **Server IP (Ubuntu)** | `10.208.115.17` (Dynamic) |
 | **Workstation IP (Fedora)** | (Will be assigned by DHCP) |
 
-> **Note:** My `ip addr` output confirms this bridged setup. I will later configure a *static* IP for the server (e.g., `10.208.115.50`) as required.
+> **Note:** ⚠️ Architecture Evolution Note: The diagram above illustrates the initial planned architecture utilizing a generic Host-Only network (192.168.56.x).
+
+However, during implementation, I discovered that working across multiple physical locations (Home and University) required a Bridged Network configuration to ensure consistent connectivity from the Fedora workstation.
+
+Implementation Change:
+
+Planned Server IP: 192.168.56.10 (Static / Host-Only)
+
+Actual Server IP: 10.208.115.x (Dynamic / Bridged)
+
+All configurations in this journal reflect the Bridged implementation.
 
 ---
 
